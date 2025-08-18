@@ -55,3 +55,8 @@ Here’s how a basic workflow JSON looks in n8n:
 ```
 - **Trigger**: Webhook (receives order data)
 - **Action**: Slack (sends a message)
+
+## Best Practices
+- Start small → build simple workflows before complex ones.
+- Use descriptive names for nodes (e.g., “Save Order in Sheets” instead of “Google Sheet Node”).
+- Keep workflows modular → one workflow = one clear purpose.
