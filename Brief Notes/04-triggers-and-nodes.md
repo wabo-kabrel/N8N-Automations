@@ -48,3 +48,28 @@ Utility nodes help **transform, filter, or combine data.**
 **3. IF Node** → check if order total > $100       
 **4. Slack Node** → send alert if order > $100  
 **5. Google Sheets Node** → log order in a spreadsheet  
+
+**Workflow JSON Snippet:**
+```json
+{
+  "nodes": [
+    {"name": "Webhook", "type": "n8n-nodes-base.webhook"},
+    {"name": "Set Order Data", "type": "n8n-nodes-base.set"},
+    {"name": "Check High Value", "type": "n8n-nodes-base.if"},
+    {"name": "Slack Alert", "type": "n8n-nodes-base.slack"},
+    {"name": "Google Sheets Log", "type": "n8n-nodes-base.googleSheets"}
+  ],
+  "connections": {
+    "Webhook": {"main":[[{"node":"Set Order Data"}]]},
+    "Set Order Data": {"main":[[{"node":"Check High Value"}]]},
+    "Check High Value": {"main":[[{"node":"Slack Alert","type":"main","index":0}],[{"node":"Google Sheets Log","type":"main","index":1}]]}
+  }
+}
+```
+
+## Best Practices & Tips
+- **Always name nodes descriptively** → e.g., “Check High Value Orders”
+- **Test triggers first** to ensure workflow starts correctly
+- **Use Set nodes early** to format or clean data
+- **IF nodes for conditional logic** → avoids unnecessary actions
+- **Keep workflows modular** → split large workflows into smaller ones
