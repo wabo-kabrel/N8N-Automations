@@ -42,9 +42,9 @@ Utility nodes help **transform, filter, or combine data.**
 
 
 ## Practical Example: Multi-Node Workflow
-**1. Scenario:** When a new order is received via a webhook:
-**2. Webhook Trigger** → receives order data
-**3. Set Node** → format order data
-**4. IF Node** → check if order total > $100     
-**5. Slack Node** → send alert if order > $100
-**6. Google Sheets Node** → log order in a spreadsheet
+**Scenario:** When a new order is received via a webhook:  
+**1. Webhook Trigger** → receives order data  
+**2. Set Node** → format order data  
+**3. IF Node** → check if order total > $100       
+**4. Slack Node** → send alert if order > $100  
+**5. Google Sheets Node** → log order in a spreadsheet  
