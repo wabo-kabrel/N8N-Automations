@@ -1,6 +1,9 @@
 # Introduction to Automation & n8n
+
 ## Concept Explanation
+
 Automation is about making computers handle repetitive tasks for you. Instead of manually copying data between apps, you build workflows that run automatically.  
+
 - **Traditional Way**: Manually export data from Gmail → paste into Google Sheets → notify on Slack.
 - **With Automation (n8n)**: New email arrives → workflow detects it → extracts details → auto-saves into Google Sheets → sends Slack notification.
   
@@ -8,7 +11,9 @@ Automation is about making computers handle repetitive tasks for you. Instead of
 It is built on **nodes** that forms **workflows**, and lets you connect **APIs, apps,** and **services** without **heavy** coding.
 
 ## Practical Example
+
 Imagine you run a small online store. Every time someone makes a purchase:
+
 1. Save order details to Google Sheets.
 2. Send a confirmation email.
 3. Notify your Slack team.
@@ -16,7 +21,9 @@ Imagine you run a small online store. Every time someone makes a purchase:
 With n8n, this becomes an **automated workflow** that runs instantly.
 
 ## Code/Workflow Example
+
 Here’s how a basic workflow JSON looks in n8n:
+
 ```json
 {
   "nodes": [
@@ -53,10 +60,12 @@ Here’s how a basic workflow JSON looks in n8n:
   }
 }
 ```
+
 - **Trigger**: Webhook (receives order data)
 - **Action**: Slack (sends a message)
 
 ## Best Practices
+
 - Start small → build simple workflows before complex ones.
 - Use descriptive names for nodes (e.g., “Save Order in Sheets” instead of “Google Sheet Node”).
 - Keep workflows modular → one workflow = one clear purpose.
