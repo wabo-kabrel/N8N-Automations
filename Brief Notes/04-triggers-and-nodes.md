@@ -1,8 +1,9 @@
 # Triggers & Nodes Deep Dive
-## 1. Triggers
+## Concept Explanation
+### 1. Triggers
 A **trigger** starts a workflow automatically. It can be thought of as the **start button**
 
-### Type of Triggers
+#### Type of Triggers
 
 | Trigger Type              | Description                                      | Example Use Case             |
 | ------------------------- | ------------------------------------------------ | ---------------------------- |
@@ -11,26 +12,26 @@ A **trigger** starts a workflow automatically. It can be thought of as the **sta
 | **App-specific triggers** | e.g., Gmail Trigger, Slack Trigger               | New email, new Slack message |
 | **Manual Trigger**        | Starts workflow manually                         | Testing or debugging         |
 
-### Key points about trigger:
+#### Key points about trigger:
 - Only **one trigger per workflow** is allowed.
 - They define **when the workflow runs.**
 - Most workflows start with a **Webhook** for real-time automation.
 
 
-## 2. Action Nodes
+### 2. Action Nodes
 Action nodes **perform tasks** in the workflow.
-### Examples:
+#### Examples:
 - **Google Sheets** → append, update, or read data
 - **Slack** → send messages
 - **HTTP Request** → call APIs
 - **Set / Function** → manipulate data
   
-### Key points:
+#### Key points:
 - Action nodes process the input data from previous nodes.
 - Nodes can output JSON to pass data along the workflow.
   
 
-## 3. Utility Nodes
+### 3. Utility Nodes
 Utility nodes help **transform, filter, or combine data.**
 
 | Node         | Purpose                       | Example                                   |
