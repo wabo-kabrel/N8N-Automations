@@ -1,13 +1,18 @@
 # Understanding n8n Interface & Core Concepts
+
 ## Concept Explanation
+
 n8n is built around a **workflow canvas** where **nodes** are connected to perform tasks. Understanding the interface and core concepts is key before creating complex automations.
 
 ## Core Concepts
-**1. Workflow**
+
+**1. Workflow*
+*
 - A **workflow** is a series of connected nodes that automate tasks.
 - Workflows **start with a trigger** and flow through **action nodes.**
 
 **2. Node**
+
 - A node is a **building block** of a workflow.
 - Types of nodes:
   - **Trigger Nodes**: Start workflows (e.g., Webhook, Cron).
@@ -15,16 +20,18 @@ n8n is built around a **workflow canvas** where **nodes** are connected to perfo
   - **Utility Nodes**: Handle data or logic (e.g., Set, Function, Merge).
 
 **3. Connections**
+
 - Nodes are connected by **lines** that represent **data flow**.
 - Data passes from one node to another in **JSON format**.
   
 **4. Credentials**
+
 - Securely store authentication info for external apps (e.g., Google Sheets, Slack).
 - Reusable across workflows.
 
 **5. Execution Panel**
-- Displays workflow run results, including successes, errors, and logs.
 
+- Displays workflow run results, including successes, errors, and logs.
 
 ## n8n Interface Overview
 
@@ -36,8 +43,8 @@ n8n is built around a **workflow canvas** where **nodes** are connected to perfo
 | **Execution Panel**          | Shows workflow run results and logs                  |
 | **Top Toolbar**              | Save, undo/redo, workflow settings, execute workflow |
 
-
 ## Practical Example: Simple Workflow
+
 **Scenario:** When you receive a new email in Gmail, save the sender and subject to Google Sheets.
 
 **Workflow Structure:**
@@ -46,6 +53,7 @@ n8n is built around a **workflow canvas** where **nodes** are connected to perfo
 **3. Action:** Google Sheets node → save data
 
 **Workflow JSON Example:**
+
 ```json
 {
   "nodes": [
@@ -85,6 +93,7 @@ n8n is built around a **workflow canvas** where **nodes** are connected to perfo
 ```
 
 ## Best Practices & Tips
+
 - **Name nodes clearly** → e.g., “Save Email to Sheets”
 - **Use Set nodes** for data formatting before sending to other nodes
 - **Test nodes individually** before connecting full workflow

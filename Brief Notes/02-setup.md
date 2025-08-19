@@ -28,7 +28,7 @@ If version < 18, uninstall old Node.js from Control Panel → Programs → Unins
 
 **2.** **Install Node Version Manager (nvm)** → allows switching Node versions easily
 
-- Download nvm for Windows: [](https://github.com/coreybutler/nvm-windows/releases)
+- Download nvm for Windows: [https://github.com/coreybutler/nvm-windows/releases]
 - Install it (default paths are fine)
 - Open new PowerShell and run:
   
@@ -69,11 +69,12 @@ n8n
    docker run -it --rm \
      -p 5678:5678 \
      n8nio/n8n
-    ``` 
+   ```
+
 - Access in browser: `http://localhost:5678`
 
-
 ### Quick Test: Your First Workflow
+
 1. Open `http://localhost:5678`
 2. Click **New Workflow**
 3. Drag a **Webhook node**
@@ -81,6 +82,7 @@ n8n
 5. Click **Execute Workflow** → Send request to the Webhook URL → see data appear
 
 ### Best Practices
+
 - Use **npx for learning** → quick start, no clutter
 - **Docker** is preferred for production or multi-user setups
 - Always check Node.js version (node -v) → n8n requires **v18+**
