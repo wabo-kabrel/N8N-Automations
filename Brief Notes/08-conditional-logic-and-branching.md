@@ -41,3 +41,46 @@
 ## Practical Example: Order Workflow with Conditional 
 
 **Scenario:** Process new orders based on order value:
+
+**1. Webhook Trigger:** Receive order data
+**2. IF Node:** Check if order_total > 100
+**3. True Branch:** Slack Node → send VIP order alert
+**4. False Branch:** Google Sheets Node → log order
+**5. Merge Node:** Combine both paths for final reporting
+
+**IF Node Expression Example:**
+
+```text
+{{$json["order_total"] > 100}}
+```
+
+- Evaluates order total dynamically from the webhook data
+
+**Workflow JSON Snippet:**
+
+```json
+{
+  "nodes": [
+    {"name":"Webhook","type":"n8n-nodes-base.webhook"},
+    {"name":"Check High Value","type":"n8n-nodes-base.if","parameters":{"conditions":[{"value1":"={{$json[\"order_total\"]}}","operation":"greater","value2":100}]}},
+    {"name":"Slack VIP Alert","type":"n8n-nodes-base.slack"},
+    {"name":"Log Order","type":"n8n-nodes-base.googleSheets"},
+    {"name":"Merge Branches","type":"n8n-nodes-base.merge","parameters":{"mode":"append"}}
+  ],
+  "connections":{
+    "Webhook":{"main":[[{"node":"Check High Value"}]]},
+    "Check High Value":{"main":[[{"node":"Slack VIP Alert"}],[{"node":"Log Order"}]]},
+    "Slack VIP Alert":{"main":[[{"node":"Merge Branches"}]]},
+    "Log Order":{"main":[[{"node":"Merge Branches"}]]}
+  }
+}
+```
+
+## Best Practices & Tips
+
+- Use **IF Nodes** for simple true/false decisions
+- Use **Switch Nodes** for multiple routing options
+- Use **Merge Nodes** to combine results from branches
+- Keep conditions **simple and readable**
+- Test each branch independently before merging
+
