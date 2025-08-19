@@ -57,8 +57,8 @@ Error Message: {{ $json["error"]["message"] }}
 
 
 ## Best Practices & Tips
-- Always test workflows with invalid data to see how they fail
-- Use Error Workflow for centralized error reporting
-- Use SplitInBatches when processing large data to prevent memory issues
-- Keep workflows modular → smaller workflows are easier to debug and optimize
-- Enable “Continue on Fail” only for non-critical nodes
+- Always **test workflows with invalid data** to see how they fail
+- Use **Error Workflow** for centralized error reporting
+- Use **SplitInBatches** when processing large data to prevent memory issues
+- Keep workflows **modular** → smaller workflows are easier to debug and optimize
+- Enable “**Continue on Fail**” only for non-critical nodes
