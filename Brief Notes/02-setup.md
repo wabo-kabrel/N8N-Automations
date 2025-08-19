@@ -37,7 +37,35 @@ If version < 18, uninstall old Node.js from Control Panel → Programs → Unins
 # Open PowerShell
 npx n8n
 ```
-- This starts n8n locally at http://localhost:5678
+- This starts n8n locally at `http://localhost:5678`
 - Every time you stop PowerShell, n8n stops (good for testing)
 
 ## Step 3: Optional - Global Install (npm)
+```bash
+npm install n8n -g
+n8n
+```
+- n8n runs globally → can start workflow anytime from terminal
+
+## Step 4: Optional - Docker Installation
+1. Install Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Run n8n container:
+   ```bash
+   docker run -it --rm \
+     -p 5678:5678 \
+     n8nio/n8n
+    ``` 
+- Access in browser: `http://localhost:5678`
+
+
+### Quick Test: Your First Workflow
+1. Open `http://localhost:5678`
+2. Click **New Workflow**
+3. Drag a **Webhook node**
+4. Connect it to a **Set node** (to output sample data)
+5. Click **Execute Workflow** → Send request to the Webhook URL → see data appear
+
+### Best Practices
+- Use **npx for learning** → quick start, no clutter
+- **Docker** is preferred for production or multi-user setups
+- Always check Node.js version (node -v) → n8n requires **v18+**
