@@ -1,0 +1,98 @@
+{
+  "name": "Daily Motivational Quote Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://daily-motivational-quotes-api.onrender.com/api/v1/quote",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "b7b8adfe-f64c-488d-8846-bc8e6c6f5e1a",
+      "name": "Get a Motivational Quote"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 20
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "f08a7641-32f2-4a3c-a346-1498cbaed455",
+      "name": "At 8 am"
+    },
+    {
+      "parameters": {
+        "sendTo": "wabokabrel@gmail.com",
+        "subject": "Daily Motivation by Kabrel",
+        "message": "={{\n`<h2>Today's Motivational Quote</h2>\n\n<blockquote>\n  <p style=\"font-size: 18px; font-style: italic;\">\"${$json.data.text}\"</p>\n  <footer style=\"font-weight: bold;\">- ${$json.data.author}</footer>\n</blockquote>\n\n<hr>\n<p style=\"color: #666; font-size: 12px;\">Powered by Daily Motivational Quotes API</p>\n<p style=\"color: #aaa; font-size: 10px;\">Generated at: ${$json.meta.generated_at}</p>`\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        512,
+        0
+      ],
+      "id": "c4864c33-3974-4d6b-95c4-d26552bf9670",
+      "name": "Send the Motivational Quote to Client",
+      "webhookId": "ca1b7623-cbdc-47ab-a971-6ba43c6dcdf7",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "h6rY77yIuAfW1eZu",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get a Motivational Quote": {
+      "main": [
+        [
+          {
+            "node": "Send the Motivational Quote to Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "At 8 am": {
+      "main": [
+        [
+          {
+            "node": "Get a Motivational Quote",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "17a84447-1784-44e5-ae5b-f4e97e70fc95",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7a1fecea1163e88c5f93b4a33cfbeebc3b74684e4a421de96715f4a9cf3926ea"
+  },
+  "id": "ZIMuGG3ejIwmW9xa",
+  "tags": []
+}
